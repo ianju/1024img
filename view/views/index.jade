@@ -1,48 +1,49 @@
 extends layout
 
 block content
-	h1= title
-	h3 欢迎来到 #{title} 
-		b(style="color:red;") ----如您未满18岁请离开本页----&nbsp;
-	p	本站提供某1024论坛新帖预览，某些内容可能引起您的反感
-	a.nav(href='/?cat=18',title='骑兵转帖') 骑兵转帖
-	a.nav(href='/?cat=17',title='步兵转帖') 步兵转帖
-	<br/>
-	a.nav(href='/?page=0',title='首页') <
-	if currPage >= 1
-		a.nav(href='/?cat='+cat+'&page='+(currPage-1),title='上一页') <-
-	- for(var index=0;index<=pages;index++){
-		if index == currPage 
-			a.nav.current(href='/?page='+index+'&cat='+cat)= index
-		else
-			a.nav(href='/?page='+index+'&cat='+cat)= index
-	- }
-	if currPage < pages
-		a.nav(href='/?page='+(currPage+1)+'&cat='+cat ,title='下一页') ->
-	a.nav(href='/?page=' + pages+'&cat='+cat ,title='末页') >
+	.warp
+		h1= title
+		h3 欢迎来到 #{title} 
+			b(style="color:red;") ----如您未满18岁请离开本页----&nbsp;
+		p	本站提供某1024论坛新帖预览，某些内容可能引起您的反感
+		a.nav(href='/?cat=18',title='骑兵转帖') 骑兵转帖
+		a.nav(href='/?cat=17',title='步兵转帖') 步兵转帖
+		<br/>
+		a.nav(href='/?page=0',title='首页') <
+		if currPage >= 1
+			a.nav(href='/?cat='+cat+'&page='+(currPage-1),title='上一页') <-
+		- for(var index=0;index<=pages;index++){
+			if index == currPage 
+				a.nav.current(href='/?page='+index+'&cat='+cat)= index
+			else
+				a.nav(href='/?page='+index+'&cat='+cat)= index
+		- }
+		if currPage < pages
+			a.nav(href='/?page='+(currPage+1)+'&cat='+cat ,title='下一页') ->
+		a.nav(href='/?page=' + pages+'&cat='+cat ,title='末页') >
 
-	<br/>
+		<br/>
 
-	- listImg.forEach(function(item){
-			a(href= domain + item.list_id,target='_blank')
+		- listImg.forEach(function(item){
+			a.content(href= domain + item.list_id,target='_blank')
 				img(src=item.src)
-				//- p= item.src
-	- })
+				span= item.title
+		- })
 
-	<br/>
+		<br/>
 
-	a.nav(href='/?cat=18',title='骑兵转帖') 骑兵转帖
-	a.nav(href='/?cat=17',title='步兵转帖') 步兵转帖
-	<br/>
-	a.nav(href='/?page=0',title='首页') <
-	if currPage >= 1
-		a.nav(href='/?cat='+cat+'&page='+(currPage-1),title='上一页') <-
-	- for(var index=0;index<=pages;index++){
-		if index == currPage 
-			a.nav.current(href='/?page='+index+'&cat='+cat)= index
-		else
-			a.nav(href='/?page='+index+'&cat='+cat)= index
-	- }
-	if currPage < pages
-		a.nav(href='/?page='+(currPage+1)+'&cat='+cat ,title='下一页') ->
-	a.nav(href='/?page=' + pages+'&cat='+cat ,title='末页') >
+		a.nav(href='/?cat=18',title='骑兵转帖') 骑兵转帖
+		a.nav(href='/?cat=17',title='步兵转帖') 步兵转帖
+		<br/>
+		a.nav(href='/?page=0',title='首页') <
+		if currPage >= 1
+			a.nav(href='/?cat='+cat+'&page='+(currPage-1),title='上一页') <-
+		- for(var index=0;index<=pages;index++){
+			if index == currPage 
+				a.nav.current(href='/?page='+index+'&cat='+cat)= index
+			else
+				a.nav(href='/?page='+index+'&cat='+cat)= index
+		- }
+		if currPage < pages
+			a.nav(href='/?page='+(currPage+1)+'&cat='+cat ,title='下一页') ->
+		a.nav(href='/?page=' + pages+'&cat='+cat ,title='末页') >

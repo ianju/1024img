@@ -7,7 +7,7 @@ exports.index = function(req, res){
 	var cat = req.query.cat||18;
 	db.all("select count(1) as c from img where cat = '"+cat+"'",function(err,count){
 		var length = count[0].c;
-		db.all("SELECT t.*,a.date FROM img t left join list a on t.list_id = a.id where cat = '"+cat+"' ORDER BY a.date desc limit "+offset+" offset "+page*offset, function(err, rows) {
+		db.all("SELECT t.*,a.date,a.title FROM img t left join list a on t.list_id = a.id where cat = '"+cat+"' ORDER BY a.date desc limit "+offset+" offset "+page*offset, function(err, rows) {
 			res.render('index', { 
 				title: '男人邦' ,
 				listImg:rows,

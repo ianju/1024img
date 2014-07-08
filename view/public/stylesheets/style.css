@@ -17,3 +17,21 @@ a.nav.current{
 	color:red;
 	font-weight: 700;
 }
+
+a.content{
+	box-sizing: border-box;
+	display: block;
+	padding:10px;
+	border: 1px solid #ccc;
+	width:822px;
+	margin-top: 10px
+}
+
+a.content img{
+	max-width: 800px;
+	width:100%;
+}
+.warp{
+	margin: 0 auto;
+	width:822px;
+}
